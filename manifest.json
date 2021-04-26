@@ -3,7 +3,7 @@
     "name": "Cascade Bicycle Club Ride Approver Email",
     "description": "Generate a mailto: URI, with a customizable template, for ride approvers to use when providing feedback on a ride",
     "author": "Shaun Ivory",
-    "version": "0.0.0.1",
+    "version": "0.0.0.2",
     "content_scripts": [
         {
             "matches": ["http://cascade.org/node/*", "https://cascade.org/node/*"],
