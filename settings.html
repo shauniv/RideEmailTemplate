@@ -1,0 +1,31 @@
+<html>
+<head>
+    <script src="EmailTemplate.js">
+    </script>
+</head>
+<body height="600px">
+<h1>Email Templates</h2>
+
+<h4>Message sent when the ride has been posted with changes</h4>
+
+<p>Subject
+<input type="text" id="notificationSubject" size="80"></textarea>
+<p>Message
+<textarea id="notificationBody" rows="10" cols="80">
+</textarea>
+
+
+<h4>Message sent when changes are needed from the ride poster:</h4>
+
+<p>Subject
+<input type="text" id="changesRequiredSubject" size="80"></textarea>
+<p>Message
+<textarea id="changesRequiredBody" rows="10" cols="80">
+</textarea>
+<button id="applysettings">Set</button>
+<button id="resetdefaults">Restore defaults</button>
+
+<script src="settings.js"/>
+</script>
+</body>
+</html>
