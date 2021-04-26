@@ -1,27 +1,42 @@
-// Kick things off by loading the email templates
-chrome.storage.sync.get({ "notificationSubject" : notificationSubjectDefault, 
-                         "notificationBody" : notificationBodyDefault,
-                        "changesRequiredSubject" : changesRequiredSubjectDefault,
-                        "changesRequiredBody" : changesRequiredBodyDefault }, 
-                        function(items)
-    {
-        if (!chrome.runtime.error)
-        {
-            CreateHyperlinks(items.notificationSubject, items.notificationBody, items.changesRequiredSubject, items.changesRequiredBody);
-        } 
-        else
-        {
-            console.log("Unable to read '" + name + "' due to error '" + chrome.runtime.error + ".");
-        }
-        console.log("Returning '" + result + "' for value '" + name + "'.");
-    });
+// Register for storage changes
+RegisterForStorageChanges();
 
+// Kick things off by loading the email templates
+ReadStorageValues();
+
+
+function RegisterForStorageChanges()
+{
+    // Register a change handler for the synced values
+    chrome.storage.onChanged.addListener(
+        function(changes, namespace) 
+        {
+            ReadStorageValues()
+        }
+    );
+}
+
+function ReadStorageValues()
+{
+    chrome.storage.sync.get({ "notificationSubject": notificationSubjectDefault,
+        "notificationBody": notificationBodyDefault,
+        "changesRequiredSubject": changesRequiredSubjectDefault,
+        "changesRequiredBody": changesRequiredBodyDefault },
+        function(items)
+        {
+            if (!chrome.runtime.error)
+            {
+                CreateHyperlinks(items.notificationSubject, items.notificationBody, items.changesRequiredSubject, items.changesRequiredBody);
+            }
+        }
+    );
+}
 
 
 function CreateHyperlinks(notificationSubject, notificationBody, changesRequiredSubject, changesRequiredBody)
 {
     var elements = document.getElementsByClassName('menu-pillbox');
-    if (elements.length > 0) 
+    if (elements.length > 0)
     {
         // Get the ride poster's email address
         var posterEmailAddress = GetTextByClassName("field-name-field-contact-email");
@@ -44,6 +59,13 @@ function CreateHyperlinks(notificationSubject, notificationBody, changesRequired
         // Get the ride's URL
         var rideUrl = document.getElementsByName("twitter:url")[0].content;
 
+        // Remove the links if they exist
+        var existingLinks = document.getElementById("extension-hyperlinks");
+        if (existingLinks)
+        {
+            existingLinks.remove();
+        }
+
         // If we have ALL of these...
         if (posterEmailAddress != "" && approverFullName != "" && approverFullName != "" && rideName != "" && rideUrl != "")
         {
@@ -55,6 +77,7 @@ function CreateHyperlinks(notificationSubject, notificationBody, changesRequired
 
             // Create a new paragraph element to hold our huperlinks
             var feedbackParagraph = document.createElement("p");
+            feedbackParagraph["id"] = "extension-hyperlinks";
 
             // Add the "fix this posting" link
             AppendFeedbackHyperlink("mailto:" + posterEmailAddress + "?cc=cbcrides@cascade.org&subject=" + encodeURIComponent(changesRequiredSubject) + "&body=" + encodeURIComponent(changesRequiredBody),
