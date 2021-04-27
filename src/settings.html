@@ -2,6 +2,20 @@
 <head>
     <script src="EmailTemplate.js">
     </script>
+    <dialog id="tokenhelpdialog"> 
+        <h3>These tokens will be replaced by their values when the email is generated:</h3>
+        <table>
+            <tr><td>&lt;rideName&gt;</td><td>The full name of the ride</td></tr>
+            <tr><td>&lt;rideUrl&gt;</td><td>The link to the ride's listing on cascade.org</td></tr>
+            <tr><td>&lt;posterFullName&gt;</td><td>The full name of the ride poster</td></tr>
+            <tr><td>&lt;posterFirstName&gt;</td><td>The first name of the ride poster</td></tr>
+            <tr><td>&lt;approverFullName&gt;</td><td>The full name of the ride approver</td></tr>
+            <tr><td>&lt;approverFirstName&gt;</td><td>The first name of the ride approver</td></tr>
+        </table>
+        <p>
+            <button id="closetokenhelpdialog">Close</button>
+        </p>
+    </dialog>
 </head>
 <body>
 <h1>Email Templates</h2>
@@ -11,7 +25,7 @@
 <p>Subject
 <input type="text" id="notificationSubject" size="80"></textarea>
 <p>Message
-<textarea id="notificationBody" rows="10" cols="80">
+<textarea id="notificationBody" rows="8" cols="80">
 </textarea>
 
 
@@ -20,12 +34,16 @@
 <p>Subject
 <input type="text" id="changesRequiredSubject" size="80"></textarea>
 <p>Message
-<textarea id="changesRequiredBody" rows="10" cols="80">
+<textarea id="changesRequiredBody" rows="8" cols="80">
 </textarea>
-<button id="applysettings">Set</button>
-<button id="resetdefaults">Restore defaults</button>
+<div>
+    <button id="applysettings">Set</button>
+    <button id="resetdefaults">Restore defaults</button>
+    <button id="opentokenhelpdialog">Available tokens</button>
+</div>
 
-<script src="settings.js"/>
+<script src="settings.js">
 </script>
+
 </body>
 </html>

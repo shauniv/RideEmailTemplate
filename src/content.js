@@ -34,13 +34,18 @@ function ReadStorageValues()
             }
             else
             {
-                console.log("returned %o", items.notificationSubject);
                 CreateHyperlinks(items.notificationSubject, items.notificationBody, items.changesRequiredSubject, items.changesRequiredBody);
             }
         }
     );
 }
 
+String.prototype.replaceAll = function(strReplace, strWith) {
+    // See http://stackoverflow.com/a/3561711/556609
+    var esc = strReplace.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+    var reg = new RegExp(esc, 'ig');
+    return this.replace(reg, strWith);
+};
 
 function CreateHyperlinks(notificationSubject, notificationBody, changesRequiredSubject, changesRequiredBody)
 {
@@ -153,4 +158,5 @@ function GetTextByClassName(className)
     }
     return result;
 }
+
 
