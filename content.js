@@ -18,14 +18,23 @@ function RegisterForStorageChanges()
 
 function ReadStorageValues()
 {
-    chrome.storage.sync.get({ "notificationSubject": notificationSubjectDefault,
-        "notificationBody": notificationBodyDefault,
-        "changesRequiredSubject": changesRequiredSubjectDefault,
-        "changesRequiredBody": changesRequiredBodyDefault },
+    chrome.storage.sync.get(
+    {
+        "notificationSubject"    : notificationSubjectDefault,
+        "notificationBody"       : notificationBodyDefault,
+        "changesRequiredSubject" : changesRequiredSubjectDefault,
+        "changesRequiredBody"    : changesRequiredBodyDefault
+    },
         function(items)
         {
-            if (!chrome.runtime.error)
+            var error = chrome.runtime.lastError;
+            if (error)
             {
+                console.error(error);
+            }
+            else
+            {
+                console.log("returned %o", items.notificationSubject);
                 CreateHyperlinks(items.notificationSubject, items.notificationBody, items.changesRequiredSubject, items.changesRequiredBody);
             }
         }
@@ -144,5 +153,4 @@ function GetTextByClassName(className)
     }
     return result;
 }
-
 
