@@ -1,0 +1,5 @@
+Generate a mailto: URI, with a customizable template, for ride approvers to use when providing feedback on a ride.
+
+This extension is only useful on free group rides posted on cascade.org's website.  For example, this ride: https://cascade.org/node/72496.
+
+This allows email templates to be customized for individual ride approvers.

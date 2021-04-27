@@ -22,7 +22,6 @@
         "default_popup": "settings.html"
     },
     "permissions": [
-        "activeTab",
         "storage"
     ]
 }
