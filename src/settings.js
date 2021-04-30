@@ -9,9 +9,14 @@ document.getElementById("applysettings").onclick = function()
     window.close();
 }
 
+document.getElementById("cancelsettings").onclick = function() 
+{
+    window.close();
+}
+
 document.getElementById("resetdefaults").onclick = function() 
 {
-    ResetStorage();
+    ResetDefaults()
 }
 
 document.getElementById("opentokenhelpdialog").onclick = function() 

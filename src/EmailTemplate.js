@@ -73,4 +73,10 @@ function LoadValuesToDocument()
     });
 }
 
-
+function ResetDefaults()
+{
+    document.getElementById("notificationSubject").value    = notificationSubjectDefault;
+    document.getElementById("notificationBody").value       = notificationBodyDefault;
+    document.getElementById("changesRequiredSubject").value = changesRequiredSubjectDefault;
+    document.getElementById("changesRequiredBody").value    = changesRequiredBodyDefault;
+}

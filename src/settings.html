@@ -2,42 +2,90 @@
 <head>
     <script src="EmailTemplate.js">
     </script>
-    <dialog id="tokenhelpdialog"> 
-        <h3>These tokens will be replaced by their values when the email is generated:</h3>
-        <table>
-            <tr><td>&lt;rideName&gt;</td><td>The full name of the ride</td></tr>
-            <tr><td>&lt;rideUrl&gt;</td><td>The link to the ride's listing on cascade.org</td></tr>
-            <tr><td>&lt;posterFullName&gt;</td><td>The full name of the ride poster</td></tr>
-            <tr><td>&lt;posterFirstName&gt;</td><td>The first name of the ride poster</td></tr>
-            <tr><td>&lt;approverFullName&gt;</td><td>The full name of the ride approver</td></tr>
-            <tr><td>&lt;approverFirstName&gt;</td><td>The first name of the ride approver</td></tr>
-        </table>
-        <p>
-            <button id="closetokenhelpdialog">Close</button>
-        </p>
+    <style>
+        * {
+            font-family: Helvetica, Arial, sans-serif;
+            color: 006f44;
+        }
+        body
+        {
+            background-image: linear-gradient(to bottom right, white, #b6ffde);
+            width: 600px;
+            height: 490px;
+        }
+
+        h1,h2,h3,h4
+        {
+            text-align: center;
+        }
+
+        textarea
+        { 
+            resize: none;
+        }
+
+        .alignright
+        {
+            text-align: right;
+        }
+
+        table.center 
+        {
+            margin-left:auto; 
+            margin-right:auto;
+        }
+        .textinputs 
+        {
+            width: 600px;
+            font-family: Consolas, Courier New, monospace;
+            color: Black;
+        }
+    </style>
+    <dialog id="tokenhelpdialog">
+    <h3>These tokens will be replaced by their values when the email is generated:</h3>
+    <table class="center">
+        <tr>
+            <td>&lt;rideName&gt;</td><td class="alignright">The full name of the ride</td>
+        </tr>
+        <tr>
+            <td>&lt;rideUrl&gt;</td><td class="alignright">The link to the ride's listing on cascade.org</td>
+        </tr>
+        <tr>
+            <td>&lt;posterFullName&gt;</td><td class="alignright">The full name of the ride poster</td>
+        </tr>
+        <tr>
+            <td>&lt;posterFirstName&gt;</td><td class="alignright">The first name of the ride poster</td>
+        </tr>
+        <tr>
+            <td>&lt;approverFullName&gt;</td><td class="alignright">The full name of the ride approver</td>
+        </tr>
+        <tr>
+            <td>&lt;approverFirstName&gt;</td><td class="alignright">The first name of the ride approver</td>
+        </tr>
+    </table>
+    <p>
+    <button id="closetokenhelpdialog">Close</button>
+    </p>
     </dialog>
 </head>
 <body>
-<h1>Email Templates</h2>
+<h2>Email Templates</h2>
 
-<h4>Message sent when the ride has been posted with changes</h4>
+<div><h4>Message sent when the ride has already been posted with changes</h4></div>
+<div>Subject</div>
+<div><input type="text" id="notificationSubject" size="80" class="textinputs"></textarea></div>
+<div>Message</div>
+<div><textarea id="notificationBody" rows="8" cols="80" class="textinputs"></textarea></div>
 
-<p>Subject
-<input type="text" id="notificationSubject" size="80"></textarea>
-<p>Message
-<textarea id="notificationBody" rows="8" cols="80">
-</textarea>
+<div><h4>Message sent when changes are needed from the ride poster:</h4></div>
+<div>Subject</div>
+<div><input type="text" id="changesRequiredSubject" size="80" class="textinputs"></textarea></div>
+<div>Message</div>
+<div><textarea id="changesRequiredBody" rows="8" cols="80" class="textinputs"></textarea></div>
 
-
-<h4>Message sent when changes are needed from the ride poster:</h4>
-
-<p>Subject
-<input type="text" id="changesRequiredSubject" size="80"></textarea>
-<p>Message
-<textarea id="changesRequiredBody" rows="8" cols="80">
-</textarea>
-<div>
-    <button id="applysettings">Set</button>
+<div style="">
+    <button id="applysettings">OK</button>
+    <button id="cancelsettings">Cancel</button>
     <button id="resetdefaults">Restore defaults</button>
     <button id="opentokenhelpdialog">Available tokens</button>
 </div>
