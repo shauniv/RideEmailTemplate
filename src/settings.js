@@ -31,3 +31,4 @@ document.getElementById("closetokenhelpdialog").onclick = function()
     dialog.close(); 
 }
 
+

@@ -54,6 +54,10 @@ function CreateHyperlinks(notificationSubject, notificationBody, changesRequired
     {
         // Get the ride poster's email address
         var posterEmailAddress = GetTextByClassName("field-name-field-contact-email");
+        if (posterEmailAddress == "")
+        {
+            posterEmailAddress = "NO-EMAIL-ADDRESS-PROVIDED";
+        }
 
         // Get the ride poster's full name
         var posterFullName = GetTextByClassName("field-name-field-contact-name");
@@ -115,8 +119,8 @@ function CreateHyperlinks(notificationSubject, notificationBody, changesRequired
 
 function GetCurrentUserName()
 {
-    // The first one should be the logged-in user
-    var userLink = document.querySelector("a[title='View user profile.']");
+    // Find the logged in user from the comment entry form
+    var userLink = document.querySelector("form.comment-form div[id='edit-author--2'] a.username");
     if (userLink)
     {
         return userLink.innerText;

@@ -8,9 +8,9 @@ const approverFirstNameToken = "<approverFirstName>";
 
 // Default email template values
 const notificationSubjectDefault    = "Your \"<rideName>\" ride"
-const notificationBodyDefault       = "Hi <posterFirstName>!\n\nRide posting: <rideUrl>\n\nI approved your ride, but I made the following changes:\n\n\n\nPlease let me know if you have any questions or concerns.\n\nThanks for posting rides!\n- <approverFirstName>"
+const notificationBodyDefault       = "Hi <posterFirstName>!\r\n\r\nRide posting: <rideUrl>\r\n\r\nI approved your ride, but I made the following changes:\r\n\r\n\r\n\r\nPlease let me know if you have any questions or concerns.\r\n\r\nThanks for posting rides!\r\n- <approverFirstName>"
 const changesRequiredSubjectDefault = "Your \"<rideName>\" ride"
-const changesRequiredBodyDefault    = "Hi <posterFirstName>!\n\nRide posting: <rideUrl>\n\nI am reviewing this ride and encountered a few problems that need to be addressed before I approve it.\n\n\n\nPlease reply all to this email when you are done making changes, and I will take another look.\n\nThanks for posting rides!\n- <approverFirstName>"
+const changesRequiredBodyDefault    = "Hi <posterFirstName>!\r\n\r\nRide posting: <rideUrl>\r\n\r\nI am reviewing this ride and encountered a few problems that need to be addressed before I approve it.\r\n\r\n\r\n\r\nPlease reply all to this email when you are done making changes, and I will take another look.\r\n\r\nThanks for posting rides!\r\n- <approverFirstName>"
 
 function ResetStorage()
 {
