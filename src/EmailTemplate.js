@@ -80,3 +80,5 @@ function ResetDefaults()
     document.getElementById("changesRequiredSubject").value = changesRequiredSubjectDefault;
     document.getElementById("changesRequiredBody").value    = changesRequiredBodyDefault;
 }
+
+

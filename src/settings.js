@@ -1,6 +1,7 @@
 document.body.onload = function() 
 {
     LoadValuesToDocument();
+    document.getElementById("versionPlaceholder").innerText = " v" + chrome.runtime.getManifest().version;
 }
 
 document.getElementById("applysettings").onclick = function() 
